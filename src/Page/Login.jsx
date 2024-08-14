@@ -34,10 +34,10 @@ const Login = () => {
         }}
       ></div>
 
-      <div className="relative z-10 bg-white bg-opacity-80 backdrop-filter backdrop-blur-md p-8 rounded-lg shadow-lg max-w-sm w-full">
+      <div className="relative z-10 bg-white bg-opacity-50 backdrop-filter backdrop-blur-md p-8 rounded-lg shadow-lg max-w-sm w-full">
         <form onSubmit={handleSubmit}>
           <div className="text-center mb-6">
-            <img src={Logo} alt="Klinik Logo" className="w-24 h-24 mx-auto" />
+            <img src={Logo} alt="Klinik Logo" className="w-24 h-27 mx-auto" />
             <h1 className="text-2xl font-semibold text-gray-800 mt-4">Login</h1>
           </div>
 
