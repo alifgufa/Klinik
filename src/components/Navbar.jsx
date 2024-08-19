@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBell,
@@ -16,6 +16,7 @@ import logo from "../../public/Image/LgKlinik.png";
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -23,6 +24,11 @@ const Navbar = () => {
 
   const toggleNotification = () => {
     setIsNotificationOpen(!isNotificationOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("Token");
+    navigate("/");
   };
 
   return (
@@ -143,13 +149,15 @@ const Navbar = () => {
                     Form Order Lab
                   </a>
                 </li>
-                <Link
-                  to="/"
-                  className="flex items-center space-x-1 bg-red-700 hover:bg-red-900 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300 ease-in-out"
-                >
-                  <FontAwesomeIcon icon={faSignOutAlt} className="text-base" />
-                  <span className="text-sm">Logout</span>
-                </Link>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="flex items-center space-x-1 bg-red-700 hover:bg-red-900 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300 ease-in-out w-full text-left"
+                  >
+                    <FontAwesomeIcon icon={faSignOutAlt} className="text-base" />
+                    <span className="text-sm">Logout</span>
+                  </button>
+                </li>
               </ul>
             </div>
           </div>

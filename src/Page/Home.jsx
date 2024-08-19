@@ -2,12 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import bgberanda from "../../public/Image/bgberanda.jpg";
+import Card from "../Layout/Card";
 
 const Home = () => {
   return (
     <>
       <Navbar />
       <div className="relative w-full h-screen bg-white flex items-center justify-center text-center text-white">
+        < Card />
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{

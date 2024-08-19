@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BgKlinik from "../../public/Image/BgKlinik.png";
 import Logo from "../../public/Image/LgKlinik.png";
@@ -10,6 +10,14 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    
+    const token = localStorage.getItem("Token");
+    if (token) {
+      navigate("/Beranda");
+    }
+  }, [navigate]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username === "klinik" && password === "klinik") {
@@ -17,6 +25,8 @@ const Login = () => {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
+        
+        localStorage.setItem("Token", "2029923929293293921923"); 
         navigate("/Beranda");
       }, 3000);
     } else {
